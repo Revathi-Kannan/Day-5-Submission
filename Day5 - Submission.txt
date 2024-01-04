@@ -1,0 +1,54 @@
+//3.	Write a “person” class to hold all the details
+
+class Person {
+    constructor(firstName, lastName, age, gender, email) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.age = age;
+      this.gender = gender;
+      this.email = email;
+    }
+  
+    getFullName() {
+      return `${this.firstName} ${this.lastName}`;
+    }
+  
+    displayDetails() {
+      console.log(`Name: ${this.getFullName()}`);
+      console.log(`Age: ${this.age}`);
+      console.log(`Gender: ${this.gender}`);
+      console.log(`Email: ${this.email}`);
+    }
+  }
+  
+  
+  const person1 = new Person("Revathi", "Kannan", 25, "Female", "reathi@gmail.com");
+  person1.displayDetails();
+  
+
+
+//4.	write a class to calculate the uber price
+
+function calculateUberPrice(distance, time) {
+    // Uber pricing constants 
+    const baseFare = 5.0;
+    const perMileRate = 2.0;
+    const perMinuteRate = 0.5;
+
+    // Validate input
+    if (typeof distance !== 'number' || typeof time !== 'number' || distance < 0 || time < 0) {
+        throw new Error('Invalid input. Distance and time must be non-negative numbers.');
+    }
+
+    // Calculate total fare
+    const totalFare = baseFare + (distance * perMileRate) + (time * perMinuteRate);
+
+    return totalFare;
+}
+
+// 
+const distance = 10; 
+const time = 15; 
+
+const totalFare = calculateUberPrice(distance, time);
+console.log(`The Uber fare for a ${distance} mile trip taking ${time} minutes is $${totalFare.toFixed(2)}.`);
